@@ -3,10 +3,15 @@ import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 import '../../model/classes/Gauges.dart';
 
-class SfRadialGaugesElement extends StatelessWidget {
+class SfRadialGaugesElement extends StatefulWidget {
   final double imc;
   const SfRadialGaugesElement({Key? key, required this.imc}) : super(key: key);
 
+  @override
+  State<SfRadialGaugesElement> createState() => _SfRadialGaugesElementState();
+}
+
+class _SfRadialGaugesElementState extends State<SfRadialGaugesElement> {
   @override
   Widget build(BuildContext context) {
     return SfRadialGauge(
@@ -27,7 +32,8 @@ class SfRadialGaugesElement extends StatelessWidget {
             ],
             pointers: [
               NeedlePointer(
-                value: imc,
+                animationDuration: 3000,
+                value: widget.imc,
                 enableAnimation: true,
               )
             ],
